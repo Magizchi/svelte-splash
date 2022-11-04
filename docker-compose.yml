@@ -1,18 +1,18 @@
 version: '3'
 
 networks:
-  pharaphop_network:
+  svelte_network:
 
 services:
   node:
     build:
       context: .
-      dockerfile: Docker/Dockerfile
-    container_name: parashop_back
+      dockerfile: docker/Dockerfile
+    container_name: Svelte_container
     ports:
       - '3000:3000'
     networks:
-      - pharaphop_network
+      - svelte_network
 
   db:
     image: mariadb:10.6.10-focal
@@ -25,7 +25,7 @@ services:
     ports:
       - '3306:3306'
     networks:
-      - pharaphop_network
+      - svelte_network
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -38,8 +38,8 @@ services:
     depends_on:
       - db
     networks:
-      - pharaphop_network
+      - svelte_network
 volumes:
   db:
   phpmyadmin:
-  python:
+  node:

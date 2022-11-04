@@ -6,18 +6,44 @@
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
-	"dockerComposeFile": [
-		"../docker-compose.yml",
-		"docker-compose.yml"
-	],
+	"dockerComposeFile": ["../docker-compose.yml", "./docker-compose.yml"],
 
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
 	"service": "node",
+	"settings": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"[svelte]": {
+			"editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+			"editor.formatOnSave": false
+		},
+		"css.validate": false,
+		"color-highlight.markerType": "dot-before",
+		"files.associations": {
+			"*.xml.dist": "xml",
+			"spark": "php",
+			"env": "dotenv",
+			".rsync-filter": "diff"
+		}
+	},
 
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
-	"workspaceFolder": "/workspace"
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint",
+				"svelte.svelte-vscode",
+				"bradlc.vscode-tailwindcss",
+				"vscode-icons-team.vscode-icons",
+				"ms-azuretools.vscode-docker",
+				"jamesbirtles.svelte-vscode"
+			]
+		}
+	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
